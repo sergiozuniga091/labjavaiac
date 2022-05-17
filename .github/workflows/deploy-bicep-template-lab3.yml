@@ -1,0 +1,25 @@
+name: Deploy Java App Service
+
+on: workflow_dispatch
+
+jobs:
+  deploy-bicep-template:
+    runs-on: ubuntu-latest
+    steps:
+
+      # Checkout code
+    - uses: actions/checkout@main
+
+      # Log into Azure
+    - uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      # Deploy Bicep file
+    - name: Deploy Bicep Template
+      uses: azure/arm-deploy@v1
+      with:
+        subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
+        resourceGroupName: ${{ secrets.AZURE_RG }}
+        template: ./bicep/lab3-java/main.bicep
+        failOnStdErr: false
