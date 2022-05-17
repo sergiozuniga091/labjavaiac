@@ -11,9 +11,6 @@ param sku string = 'S1'
 @description('The Runtime stack of current web app')
 param linuxFxVersion string = 'JAVA|1.8|TOMCAT|9.0'
 
-@description('Optional Git Repo URL')
-param repoUrl string = ' '
-
 var appServicePlanPortalName = 'AppServicePlan-${webAppName}'
 
 resource appServicePlan 'Microsoft.Web/serverfarms@2021-02-01' = {
