@@ -9,7 +9,7 @@ param location string = resourceGroup().location
 param sku string = 'S1'
 
 @description('The Runtime stack of current web app')
-param linuxFxVersion string = 'JAVA|1.8|TOMCAT|9.0'
+param linuxFxVersion string = 'TOMCAT|9.0-jre8'
 
 var appServicePlanPortalName = 'AppServicePlan-${webAppName}'
 
